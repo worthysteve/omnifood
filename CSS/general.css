@@ -1,0 +1,312 @@
+/*
+
+-- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+
+-font weights
+
+Default: 400
+medium:500
+Semi-bold:600
+Bold:700
+
+
+-line heights
+Default: 1
+small: 1.05
+paragraph defauld: 1.6
+
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+
+-- 02 COLORS
+
+-Primary: #e67e22
+
+-Tints:
+
+  --second-bg-color:#f8d8bd
+  --bg-color: #fdf2e9;
+
+-Shades:
+
+-Accent:
+
+-Greys:
+
+--gray-color-1: #555;
+  --gray-color-2: #333;
+
+-- 03 SHADOWS
+
+-- 04 BORDER-RADIUS
+
+Default: 9px
+
+
+-- 05 WHITESPACE
+
+- spacing system(px)
+  2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* primary */
+  --primary: #e67e22;
+  --second-primary: #cf711f;
+  --bg-color: #fdf2e9;
+  --bg-color-primary: #fae5d3;
+  --second-bg-color: #f8d8bd;
+  --white: #fff;
+  --gray-color-1: #555;
+  --gray-color-2: #333;
+  --tint--1: #45260a;
+  --shade-1: #ddd;
+  --shade-2: #888;
+  --shade-3: #6f6f6f;
+  --bg-color-secondary: ##51cf66;
+  --bg-color-secondary-2: #94d82d;
+  --bg-color-secondary-3: #ffd43b;
+  --tint: #45260a;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5%*/
+  /* Percentage of user's browsers font-size setting */
+  font-size: 62.5%;
+  overflow-x: hidden;
+
+  /* does not work on SAFARI */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--gray-color-1);
+
+  /* only works if there is nothing absolutely positioned in relation to body*/
+  overflow-x: hidden;
+}
+
+/* ******************************************* */
+/* GENERAL REUSABLE COMPONENTS */
+/* ******************************************* */
+
+.container {
+  /* 1140px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  gap: 9.6rem;
+
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: var(--gray-color-1);
+  /* color: var(--tint--1); */
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--second-primary);
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+
+  /* background-color: var(--primary);
+  color: var(--white); */
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+
+  /* only necessary for the btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* Put transition on original state */
+  /* transition: background-color 0.3s; */
+  transition: all 0.3s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: var(--second-primary);
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: var(--white);
+  color: var(--gray-color-1);
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: var(--bg-color-primary);
+
+  /* border: 3px solid var(--white); */
+
+  /* Trick to add borddr inside */
+  box-shadow: inset 0 0 0 3px var(--white);
+}
+
+.btn--form {
+  background-color: var(--tint);
+  color: var(--bg-color);
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: var(--white);
+  color: var(--gray-color-1);
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: var(--second-primary);
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--primary);
+}
+
+/* Global reset for focus */
+*:focus {
+  outline: none;
+  /* outline: 4px dotted var(--primary);
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+}
+
+/* HELPER CLASSES */
+/* to add margin to the btn-full */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+strong {
+  font-weight: 600;
+}
